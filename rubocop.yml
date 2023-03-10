@@ -1,0 +1,8 @@
+AllCops:
+  Exclude:
+    - "vendor/**/*"
+    - "db/schema.rb"
+    - "bin/*"
+    - "gems/**/*"
+Layout/LineLength:
+  Max: 150
