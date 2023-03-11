@@ -34,13 +34,25 @@ class RedirectApi < ::ApplicationApi
       req = Net::HTTP::Post.new(uri)
       req.basic_auth CLINET_ID, CLINET_SECRET
       req['Content-Type'] = 'application/x-www-form-urlencoded'
+      req['user-agent'] = 'raven v0.1 by /u/LaptopTheOne'
       req.body = generate_token_params(code)
 
       result = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
         http.request(req)
       end
 
-      JSON.parse(result.body)
+      response = JSON.parse(result.body)
+      access_token = response['access_token']
+      refresh_token = response['refresh_token']
+      expires_in = response['expires_in']
+      scope = response['scope']
+
+      puts response
+
+      case scope
+      when 'history'
+        redirect("http://localhost:3001/api/history/bearer-token?access-token=#{access_token}&refresh-token=#{refresh_token}&expires_in=#{expires_in}")
+      end
     end
   end
 end
