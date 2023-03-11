@@ -6,6 +6,7 @@ ruby '2.7.2'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'grape'
 gem 'grape_on_rails_routes'
+gem 'rack-cors'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
