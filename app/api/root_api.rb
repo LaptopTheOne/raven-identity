@@ -6,4 +6,5 @@ class RootApi < ::ApplicationApi
 
   mount ::OAuthApi => "#{PREFIX}/oauth"
   mount ::RedirectApi => "#{PREFIX}/redirect"
+  mount ::IdentityApi => "#{PREFIX}/identity"
 end
