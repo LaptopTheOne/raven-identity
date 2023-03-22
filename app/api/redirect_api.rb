@@ -36,7 +36,7 @@ class RedirectApi < ::ApplicationApi
       req = Net::HTTP::Post.new(uri)
       req.basic_auth CLINET_ID, CLINET_SECRET
       req['Content-Type'] = 'application/x-www-form-urlencoded'
-      req['user-agent'] = 'webapp:raven-web v0.111 (by /u/LaptopTheOne)'
+      req['user-agent'] = 'webapp:raven-web v0.121 (by /u/LaptopTheOne)'
       req.body = generate_token_params(code)
 
       result = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
