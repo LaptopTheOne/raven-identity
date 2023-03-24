@@ -3,7 +3,7 @@ Rails.application.config.middleware.insert_before 0, ::Rack::Cors do
     if !Rails.env.production?
       origins 'localhost:8080'
     else
-      origins 'https://tidder-app.netlify.app/'
+      origins 'https://tidder-app.netlify.app'
     end
 
     resource('*', headers: :any, methods: %i[get options post put delete])
